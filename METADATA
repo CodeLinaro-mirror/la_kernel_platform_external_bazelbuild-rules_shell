@@ -1,15 +1,21 @@
+# This project was upgraded with external_updater.
+# Usage: tools/external_updater/updater.sh update external/bazelbuild-rules_shell
+# For more info, check https://cs.android.com/android/platform/superproject/main/+/main:tools/external_updater/README.md
+
 name: "rules_shell"
 description: "This repository contains the Bazel ruleset for shell scripts."
-
 third_party {
+  license_type: NOTICE
+  last_upgrade_date {
+    year: 2025
+    month: 7
+    day: 30
+  }
   homepage: "https://github.com/bazelbuild/rules_shell"
   identifier {
     type: "Git"
     value: "https://github.com/bazelbuild/rules_shell"
+    version: "v0.5.0"
     primary_source: true
-    version: "104505faea10e1fe50bb7f7a5b3142b63181e644"
   }
-  version: "104505faea10e1fe50bb7f7a5b3142b63181e644"
-  last_upgrade_date { year: 2024 month: 12 day: 10 }
-  license_type: NOTICE
 }
