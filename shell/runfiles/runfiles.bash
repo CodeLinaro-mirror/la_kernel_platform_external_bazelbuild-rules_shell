@@ -58,7 +58,7 @@
 #       sh_binary(
 #           name = "my_binary",
 #           ...
-#           deps = ["@bazel_tools//tools/bash/runfiles"],
+#           deps = ["@rules_shell//shell/runfiles"],
 #       )
 #
 # 2.  Source the runfiles library.
@@ -83,6 +83,8 @@
 # 3.  Use rlocation to look up runfile paths.
 #
 #       cat "$(rlocation my_workspace/path/to/my/data.txt)"
+#
+# You can skip steps 1 and 2 when setting "use_bash_launcher" attribute in sh_binary or sh_test.
 #
 
 if [[ ! -d "${RUNFILES_DIR:-/dev/null}" && ! -f "${RUNFILES_MANIFEST_FILE:-/dev/null}" ]]; then
@@ -113,7 +115,9 @@ esac
 # Does not exit with a non-zero exit code if no match is found and performs a case-insensitive
 # search on Windows.
 function __runfiles_maybe_grep() {
-  grep $_RLOCATION_GREP_CASE_INSENSITIVE_ARGS "$@" || test $? = 1;
+  # The GREP_XXX variables influence how grep behaves. Specifically, they can
+  # affect the output from the grep command.
+  GREP_COLOR="" GREP_OPTIONS="" grep $_RLOCATION_GREP_CASE_INSENSITIVE_ARGS "$@" || test $? = 1;
 }
 export -f __runfiles_maybe_grep
 

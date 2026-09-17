@@ -7,16 +7,16 @@ description: "This repository contains the Bazel ruleset for shell scripts."
 third_party {
   license_type: NOTICE
   last_upgrade_date {
-    year: 2025
-    month: 7
-    day: 30
+    year: 2026
+    month: 9
+    day: 10
   }
   homepage: "https://github.com/bazelbuild/rules_shell"
   identifier {
     type: "Git"
     value: "https://github.com/bazelbuild/rules_shell"
-    version: "c1d71d899908e42b3fa5f1c8d63cc335141d719a"
-    closest_version: "v0.5.0"
+    version: "e071f45e209f3e154210faed3d0e60c29aef3b4a"
+    closest_version: "v0.6.1"
     primary_source: true
   }
 }
